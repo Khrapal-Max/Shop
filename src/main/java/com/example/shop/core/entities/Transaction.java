@@ -20,13 +20,13 @@ public  class Transaction {
     public Transaction() {
     }
 
-    public Transaction(Integer id, Integer userId, Integer productId, double price) {
+    public Transaction(Integer id, Integer userId, Integer productId) {
         this.id = id;
         this.userId = userId;
         this.productId = productId;
     }
 
-    public Transaction(Integer userId, Integer productId, double price) {
+    public Transaction(Integer userId, Integer productId) {
         this.userId = userId;
         this.productId = productId;
     }

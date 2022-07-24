@@ -1,8 +1,10 @@
 package com.example.shop.core.utils;
 
 import com.example.shop.core.dto.ProductDTO;
+import com.example.shop.core.dto.TransactionDTO;
 import com.example.shop.core.dto.UserDTO;
 import com.example.shop.core.entities.Product;
+import com.example.shop.core.entities.Transaction;
 import com.example.shop.core.entities.User;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,22 @@ public class MappingUtils {
         entity.setId(dto.getId());
         entity.setName(entity.getName());
         entity.setPrice(entity.getPrice());
+        return entity;
+    }
+
+    public TransactionDTO mapToTransactionDto(Transaction entity){
+
+        TransactionDTO dto = new TransactionDTO();
+        dto.setId (entity.getId());
+        dto.setUserId(entity.getUserId());
+        dto.setProductId(entity.getProductId());
+        return dto;
+    }
+
+    public Transaction mapToTransactionEntity(TransactionDTO dto){
+        Transaction entity = new Transaction();
+        entity.setUserId(entity.getUserId());
+        entity.setProductId(entity.getProductId());
         return entity;
     }
 }
