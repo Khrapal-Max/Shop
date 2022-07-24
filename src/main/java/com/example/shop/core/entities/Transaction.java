@@ -17,9 +17,6 @@ public  class Transaction {
     @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "price")
-    private double price;
-
     public Transaction() {
     }
 
@@ -27,13 +24,11 @@ public  class Transaction {
         this.id = id;
         this.userId = userId;
         this.productId = productId;
-        this.price = price;
     }
 
     public Transaction(Integer userId, Integer productId, double price) {
         this.userId = userId;
         this.productId = productId;
-        this.price = price;
     }
 
     public Integer getId() {
@@ -48,10 +43,6 @@ public  class Transaction {
         return productId;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -64,17 +55,12 @@ public  class Transaction {
         this.productId = productId;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     @Override
     public String toString() {
         return "Transaction{" +
                 "id=" + id +
                 ", userId=" + userId +
                 ", productId=" + productId +
-                ", price=" + price +
                 '}';
     }
 }

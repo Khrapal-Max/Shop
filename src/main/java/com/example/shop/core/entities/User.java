@@ -1,6 +1,7 @@
 package com.example.shop.core.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -20,17 +21,23 @@ public  class User {
     @Column(name = "amount")
     private double amountOfMoney;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "transactions",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"))
+    private List<Product> products;
+
     public User() {
     }
 
-    public User(Integer id, String firstName, String lastName, double amountOfMoney) {
-        this.id = id;
+    public User(String firstName, String lastName, double amountOfMoney) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.amountOfMoney = amountOfMoney;
     }
 
-    public User(String firstName, String lastName, double amountOfMoney) {
+    public User(Integer id, String firstName, String lastName, double amountOfMoney) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.amountOfMoney = amountOfMoney;
@@ -51,9 +58,12 @@ public  class User {
     public double getAmountOfMoney() {
         return amountOfMoney;
     }
-    public void setId(Integer id) {
-        this.id = id;
+
+    public List<Product> getProducts() {
+        return products;
     }
+
+    public void setId(Integer id) { this.id = id; }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -65,6 +75,10 @@ public  class User {
 
     public void setAmountOfMoney(double amountOfMoney) {
         this.amountOfMoney = amountOfMoney;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     @Override

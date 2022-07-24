@@ -1,6 +1,7 @@
 package com.example.shop.core.services;
 
 import com.example.shop.core.entities.Product;
+import com.example.shop.core.entities.User;
 import com.example.shop.infrastructure.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

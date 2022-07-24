@@ -1,12 +1,10 @@
 package com.example.shop.controllers;
 
+import com.example.shop.core.entities.Product;
 import com.example.shop.core.entities.User;
 import com.example.shop.core.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="api/v1/users")
@@ -22,6 +20,11 @@ public class UserController {
     @GetMapping(path = "/allUsers")
     public @ResponseBody Iterable<User> getAllUser() {
         return userService.getAllUsers();
+    }
+
+    @GetMapping(path = "/products/{id}")
+    public @ResponseBody Iterable<Product> getAllUserProducts(@PathVariable int id) {
+        return userService.getAllUserProducts(id);
     }
 
     //another functions

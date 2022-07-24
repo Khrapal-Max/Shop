@@ -1,6 +1,8 @@
 package com.example.shop.core.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
@@ -17,16 +19,19 @@ public  class Product {
     @Column(name = "price")
     private double price;
 
+    @ManyToMany(mappedBy = "products")
+    private Set<User> users = new HashSet<>();
+
     public Product() {
     }
 
-    public Product(Integer id, String name, double price) {
-        this.id = id;
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
     }
 
-    public Product(String name, double price) {
+    public Product(Integer id, String name, double price) {
+        this.id = id;
         this.name = name;
         this.price = price;
     }
