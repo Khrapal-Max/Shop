@@ -1,6 +1,6 @@
 package com.example.shop.controllers;
 
-import com.example.shop.core.entities.Product;
+import com.example.shop.core.dto.ProductDTO;
 import com.example.shop.core.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class ProductController {
     }
 
     @GetMapping(path="/allProducts")
-    public @ResponseBody Iterable<Product> getAllProducts() {
+    public @ResponseBody Iterable<ProductDTO> getAllProducts() {
         return productService.getAllProducts();
     }
 

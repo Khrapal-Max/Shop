@@ -1,7 +1,7 @@
 package com.example.shop.controllers;
 
+import com.example.shop.core.dto.ProductDTO;
 import com.example.shop.core.dto.UserDTO;
-import com.example.shop.core.entities.Product;
 import com.example.shop.core.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/products/{id}")
-    public @ResponseBody Iterable<Product> getAllUserProducts(@PathVariable int id) {
+    public @ResponseBody Iterable<ProductDTO> getAllUserProducts(@PathVariable int id) {
         return userService.getAllUserProducts(id);
     }
 

@@ -1,7 +1,7 @@
 package com.example.shop.core.services;
 
+import com.example.shop.core.dto.ProductDTO;
 import com.example.shop.core.dto.UserDTO;
-import com.example.shop.core.entities.Product;
 import com.example.shop.core.utils.MappingUtils;
 import com.example.shop.infrastructure.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +24,16 @@ public class UserService {
     }
 
     public List<UserDTO> getAllUsers() {
+
         return userRepository.findAll().stream()
                 .map(mappingUtils::mapToUserDto)
                 .collect(Collectors.toList());
     }
 
-    public List<Product> getAllUserProducts(int id) {
-        return userRepository.findById(id).get().getProducts();
+    public List<ProductDTO> getAllUserProducts(int id) {
+
+        return userRepository.findById(id).get().getProducts().stream()
+                .map(mappingUtils::mapToProductDto)
+                .collect(Collectors.toList());
     }
 }

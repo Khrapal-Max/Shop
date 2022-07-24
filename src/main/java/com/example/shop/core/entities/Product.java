@@ -48,6 +48,8 @@ public  class Product {
         return price;
     }
 
+    public Set<User> getUsers() { return users; }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -59,6 +61,8 @@ public  class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public void setUsers(Set<User> users) { this.users = users; }
 
     @Override
     public String toString() {
