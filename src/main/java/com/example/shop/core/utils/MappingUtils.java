@@ -14,7 +14,7 @@ public class MappingUtils {
         UserDTO dto = new UserDTO();
         dto.setId (entity.getId());
         dto.setFirstName(entity.getFirstName());
-        dto.setFirstName(entity.getLastName());
+        dto.setLastName(entity.getLastName());
         dto.setAmountOfMoney(entity.getAmountOfMoney());
         return dto;
     }
