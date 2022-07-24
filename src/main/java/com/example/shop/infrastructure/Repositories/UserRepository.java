@@ -1,8 +1,7 @@
-package com.example.shop.infrastructure.repositories;
+package com.example.shop.infrastructure.Repositories;
 
+import com.example.shop.core.entities.User;
 import org.springframework.data.repository.CrudRepository;
-
-import com.example.shop.core.entities.user;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
