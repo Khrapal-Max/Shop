@@ -17,6 +17,8 @@ public  class Transaction {
     @Column(name = "product_id")
     private Integer productId;
 
+    //need data time
+
     public Transaction() {
     }
 
