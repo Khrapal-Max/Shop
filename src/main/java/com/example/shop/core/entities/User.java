@@ -1,7 +1,6 @@
 package com.example.shop.core.entities;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "users")
@@ -16,10 +15,27 @@ public  class User {
     private String firstName;
 
     @Column(name = "last_name")
-    private String LastName;
+    private String lastName;
 
     @Column(name = "amount")
-    private BigDecimal AmountOfMoney;
+    private double amountOfMoney;
+
+    public User() {
+    }
+
+    public User(Integer id, String firstName, String lastName, double amountOfMoney) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.amountOfMoney = amountOfMoney;
+    }
+
+    public User(String firstName, String lastName, double amountOfMoney) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.amountOfMoney = amountOfMoney;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -29,13 +45,12 @@ public  class User {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
-    public BigDecimal getAmountOfMoney() {
-        return AmountOfMoney;
+    public double getAmountOfMoney() {
+        return amountOfMoney;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -45,10 +60,20 @@ public  class User {
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
-    public void setAmountOfMoney(BigDecimal amountOfMoney) {
-        AmountOfMoney = amountOfMoney;
+    public void setAmountOfMoney(double amountOfMoney) {
+        this.amountOfMoney = amountOfMoney;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", amountOfMoney=" + amountOfMoney +
+                '}';
     }
 }

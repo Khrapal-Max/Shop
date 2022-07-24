@@ -1,7 +1,6 @@
 package com.example.shop.core.entities;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "products")
@@ -16,7 +15,21 @@ public  class Product {
     private String name;
 
     @Column(name = "price")
-    private BigDecimal price;
+    private double price;
+
+    public Product() {
+    }
+
+    public Product(Integer id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;
@@ -26,7 +39,7 @@ public  class Product {
         return name;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -38,7 +51,16 @@ public  class Product {
         this.name = name;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
