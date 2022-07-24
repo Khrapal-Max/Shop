@@ -1,7 +1,7 @@
 package com.example.shop.controllers;
 
+import com.example.shop.core.dto.UserDTO;
 import com.example.shop.core.entities.Product;
-import com.example.shop.core.entities.User;
 import com.example.shop.core.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/allUsers")
-    public @ResponseBody Iterable<User> getAllUser() {
+    public @ResponseBody Iterable<UserDTO> getAllUser() {
         return userService.getAllUsers();
     }
 
